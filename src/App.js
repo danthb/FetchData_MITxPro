@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import FlexboxPage from './components/FlexboxPage';
+import Fetchador from './components/Fetchador'
+import { Fragment } from 'react';
+
+
 
 function App() {
+  const urlInt = "https://game-of-thrones-quotes.herokuapp.com/v1/author/arya/0";
+  const queryInt = 'arya';
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header 
+        className="App-header"
+        /* style={{
+          backgroundImage: `url("https://media.giphy.com/media/l3DdO92WfFxqI9uiQ/giphy.gif")`  
+          
+    }} */>
+        <Fragment>
+          <div className="d-flex flex-column">
+            <div className="p-2 col-example text-left">
+              <Fetchador url={urlInt} queryInt={ queryInt}/>
+            </div>
+          </div>
+        </Fragment>
       </header>
+      
     </div>
   );
 }
